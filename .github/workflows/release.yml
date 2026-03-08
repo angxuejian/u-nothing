@@ -86,9 +86,6 @@ jobs:
           echo "===== LIST FILES ====="
           ls -R packages/fuck-nothing
 
-      - name: 'Test npm'
-        run: 'npm whoami'
-
       - name: Publish core
         run: |
           cd packages/fuck-nothing
