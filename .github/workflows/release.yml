@@ -84,6 +84,11 @@ jobs:
           name: core
           path: packages/fuck-nothing
 
+      - name: Check downloaded files
+        run: |
+          echo "===== LIST FILES ====="
+          ls -R packages/fuck-nothing
+
       - name: Publish core
         run: |
           cd packages/fuck-nothing
