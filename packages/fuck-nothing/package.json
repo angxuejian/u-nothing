@@ -1,9 +1,9 @@
 {
-  "name": "fuck-nothing",
-  "version": "1.0.0",
+  "name": "fxxx-nothing",
+  "version": "1.0.1",
   "description": "Just writing casually",
-  "main": "dist/fuck-nothing.umd.js",
-  "module": "dist/fuck-nothing.es.js",
+  "main": "dist/fxxx-nothing.umd.js",
+  "module": "dist/fxxx-nothing.es.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"

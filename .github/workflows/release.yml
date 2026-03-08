@@ -1,0 +1,158 @@
+name: release fuck nothing
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: release
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.19.6
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 8.15.9
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build core
+        run: pnpm core:build
+
+      - name: Build docs
+        run: pnpm docs:build
+
+      - name: Upload docs artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: docs
+          path: documents/dist
+
+      - name: Upload core artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: core
+          path: |
+            packages/fuck-nothing/dist
+            packages/fuck-nothing/package.json
+
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+
+    outputs:
+      RELEASE_TAG: ${{ steps.version.outputs.RELEASE_TAG }}
+
+    environment:
+      name: npm
+
+    permissions:
+      contents: write
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.19.6
+          registry-url: https://registry.npmjs.org
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 8.15.9
+
+      - name: Download core
+        uses: actions/download-artifact@v4
+        with:
+          name: core
+          path: packages/fuck-nothing
+
+      - name: Publish core
+        run: |
+          cd packages/fuck-nothing
+          pnpm publish --access public --provenance --no-git-checks
+
+      - name: Read core package version
+        id: version
+        run: |
+          VERSION=$(node -p 'require("./packages/fuck-nothing/package.json").version')
+          echo "RELEASE_TAG=core@$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Create git tag
+        uses: actions/github-script@v7
+        env:
+          RELEASE_TAG: ${{ steps.version.outputs.RELEASE_TAG }}
+        with:
+          script: |
+            const tag = process.env.RELEASE_TAG
+
+            try {
+                await github.rest.git.getRef({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    ref: `tags/${tag}`,
+                })
+                console.log(`Tag ${tag} already exists, skip`)
+            } catch (e) {
+                console.log(`Creating tag ${tag}`)
+                await github.rest.git.createRef({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    ref: `refs/tags/${tag}`,
+                    sha: context.sha
+                })
+            }
+
+  deploy-pages:
+    needs: [build, publish-npm]
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Download docs
+        uses: actions/download-artifact@v4
+        with:
+          name: docs
+          path: documents/dist
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: documents/dist
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ needs.publish-npm.outputs.RELEASE_TAG }}
+          name: Release ${{ needs.publish-npm.outputs.RELEASE_TAG }}
+          generate_release_notes: true
