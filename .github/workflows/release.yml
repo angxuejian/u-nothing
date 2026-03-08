@@ -49,7 +49,7 @@ jobs:
           path: |
             packages/fuck-nothing/dist
             packages/fuck-nothing/package.json
-            
+
       - run: npm view fxxx-nothing
 
   publish-npm:
@@ -75,11 +75,6 @@ jobs:
           node-version: 20.19.6
           registry-url: https://registry.npmjs.org
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 8.15.9
-
       - name: Download core
         uses: actions/download-artifact@v4
         with:
@@ -91,10 +86,13 @@ jobs:
           echo "===== LIST FILES ====="
           ls -R packages/fuck-nothing
 
+      - name: 'Test npm'
+        run: 'npm whoami'
+
       - name: Publish core
         run: |
           cd packages/fuck-nothing
-          pnpm publish --access public --provenance --no-git-checks
+          npm publish --access public --provenance --no-git-checks
 
       - name: Read core package version
         id: version
