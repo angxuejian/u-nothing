@@ -49,6 +49,8 @@ jobs:
           path: |
             packages/fuck-nothing/dist
             packages/fuck-nothing/package.json
+            
+      - run: npm view fxxx-nothing
 
   publish-npm:
     needs: build
