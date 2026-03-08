@@ -12,9 +12,15 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "vite build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "vue",
+    "vue3",
+    "ui",
+    "components"
+  ],
+  "author": "angxuejian",
+  "license": "MIT",
+  "repository": "https://github.com/angxuejian/fuck.nothing",
   "devDependencies": {
     "vite-plugin-dts": "4.5.4"
   }
