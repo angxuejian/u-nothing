@@ -1,0 +1,6 @@
+
+@use '../common/namespace.scss' as *;
+
+@include b('details') {
+  font-size: 3rem;
+}

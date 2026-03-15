@@ -5,6 +5,6 @@ import { createPinia } from 'pinia';
 import App from './App.vue';
 import router from './router';
 import fxxxNothing from '@fuck-nothing-dev'; // dev
-import '@theme/main.scss';
+import '@theme/index.scss';
 
 createApp(App).use(createPinia()).use(router).use(fxxxNothing).mount('#app');

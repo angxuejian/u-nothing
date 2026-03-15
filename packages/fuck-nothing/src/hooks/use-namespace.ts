@@ -1,8 +1,8 @@
 export function useNamespace(block: string) {
-  const defaultNamespace = 'fuck';
+  const namespace = 'fuck';
   const statePrefix = 'is-';
 
-  const b = () => `${defaultNamespace}-${block}`;
+  const b = () => `${namespace}-${block}`;
   const e = (element: string) => `${b()}__${element}`;
   const m = (modifier: string) => `${b()}--${modifier}`;
 

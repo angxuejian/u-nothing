@@ -1,5 +1,6 @@
 export interface ConfigProviderProps {
   default?: boolean;
+  htmlFontSize?: number;
   // size?: 'small' | 'default' | 'large'
   // disabled?: boolean
 }
@@ -12,4 +13,5 @@ export const configKey = Symbol('fuck__config');
 
 export const ConfigProviderPropsDefault = {
   default: false,
+  htmlFontSize: 16,
 };
