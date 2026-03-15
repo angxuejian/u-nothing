@@ -1,5 +1,0 @@
-# Hello
-
-::: demo
-<fuckHello></fuckHello>
-:::

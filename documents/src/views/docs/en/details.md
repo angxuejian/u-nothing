@@ -1,0 +1,5 @@
+# Details
+
+::: demo
+<uDetails></uDetails>
+:::

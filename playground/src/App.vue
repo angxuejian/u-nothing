@@ -1,10 +1,11 @@
 <template>
-  <h1>hello world Fuck Nothing</h1>
-
-  <fuck-hello></fuck-hello>
+  <uConfigProvide :default="true">
+    <uDetails></uDetails>
+  </uConfigProvide>
 </template>
 
 <script lang="ts" setup>
+import { uConfigProvide, uDetails } from '@fuck-nothing-dev';
 import { onMounted } from 'vue';
 
 onMounted(() => {
