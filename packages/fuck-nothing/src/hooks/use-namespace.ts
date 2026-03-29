@@ -1,5 +1,5 @@
 export function useNamespace(block: string) {
-  const namespace = 'fuck';
+  const namespace = 'u';
   const statePrefix = 'is-';
 
   const b = () => `${namespace}-${block}`;

@@ -1,0 +1,90 @@
+@use './function.scss' as *;
+@use './namespace.scss' as *;
+
+$color-primary: rgb(179, 53, 229);
+$color-primary-alpha-1: rgba(179, 53, 229, 0.15);
+
+// 字号
+$font-size-xs: px-to-rem(12);
+$font-size-sm: px-to-rem(14);
+$font-size-base: px-to-rem(16);
+$font-size-lg: px-to-rem(18);
+$font-size-xl: px-to-rem(20);
+$font-size-xxl: px-to-rem(24);
+
+// 字重
+$font-weight-base: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// 行高
+$line-height-base: 1.6;
+
+// 边框宽度
+$border-width-base: 1px;
+$border-width-lg: 2px;
+
+// 边框样式
+$border-solid: solid;
+
+// 圆角
+$border-radius-sm: 2px;
+$border-radius-base: 4px;
+$border-radius-lg: 6px;
+$border-radius-xl: 8px;
+$border-radius-xxl: 12px;
+$border-radius-round: 50%;
+
+// 阴影
+$shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.08);
+$shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+$shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.16);
+
+// 主题阴影
+$shadow-primary: 0 4px 12px $color-primary-alpha-1;
+
+// 动效
+$transition-all: all 0.25s ease;
+$transition-fade: opacity 0.2s ease;
+$transition-transform: transform 0.2s ease;
+
+:root {
+  @include generate-color-vars($namespace, '-color-primary', $color-primary);
+
+  --#{$namespace}-font-size-xs: #{$font-size-xs};
+  --#{$namespace}-font-size-sm: #{$font-size-sm};
+  --#{$namespace}-font-size-base: #{$font-size-base};
+  --#{$namespace}-font-size-lg: #{$font-size-lg};
+  --#{$namespace}-font-size-xl: #{$font-size-xl};
+  --#{$namespace}-font-size-xxl: #{$font-size-xxl};
+
+  --#{$namespace}-font-weight-base: #{$font-weight-base};
+  --#{$namespace}-font-weight-medium: #{$font-weight-medium};
+  --#{$namespace}-font-weight-bold: #{$font-weight-bold};
+
+  --#{$namespace}-line-height-base: #{$line-height-base};
+
+  --#{$namespace}-border-width-base: #{$border-width-base};
+  --#{$namespace}-border-width-lg: #{$border-width-lg};
+
+  --#{$namespace}-border-solid: #{$border-solid};
+
+  --#{$namespace}-border-radius-sm: #{$border-radius-sm};
+  --#{$namespace}-border-radius-base: #{$border-radius-base};
+  --#{$namespace}-border-radius-lg: #{$border-radius-lg};
+  --#{$namespace}-border-radius-xl: #{$border-radius-xl};
+  --#{$namespace}-border-radius-xxl: #{$border-radius-xxl};
+  --#{$namespace}-border-radius-round: #{$border-radius-round};
+
+
+  --#{$namespace}-shadow-xs: #{$shadow-xs};
+  --#{$namespace}-shadow-sm: #{$shadow-sm};
+  --#{$namespace}-shadow-md: #{$shadow-md};
+  --#{$namespace}-shadow-lg: #{$shadow-lg};
+  --#{$namespace}-shadow-primary: #{$shadow-primary};
+
+  --#{$namespace}-transition-all: #{$transition-all};
+  --#{$namespace}-transition-fade: #{$transition-fade};
+  --#{$namespace}-transition-transform: #{$transition-transform};
+}

@@ -1,6 +1,10 @@
 
 @use '../common/namespace.scss' as *;
+@use '../common//index.scss' as *;
+@use '../common/function.scss' as *;
 
 @include b('details') {
-  font-size: 3rem;
+  font-size: css-var('font-size-xxl');
+  color: css-var('color-primary');
+  box-shadow: css-var('shadow-primary');
 }
