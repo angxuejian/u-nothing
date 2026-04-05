@@ -1,9 +1,9 @@
 {
-  "name": "fxxx-nothing",
-  "version": "1.0.3",
+  "name": "u-nothing",
+  "version": "1.0.0",
   "description": "Just writing casually",
-  "main": "dist/fxxx-nothing.cjs.js",
-  "module": "dist/fxxx-nothing.es.js",
+  "main": "dist/u-nothing.cjs.js",
+  "module": "dist/u-nothing.es.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
@@ -11,8 +11,8 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/fxxx-nothing.es.js",
-      "require": "./dist/fxxx-nothing.cjs.js"
+      "import": "./dist/u-nothing.es.js",
+      "require": "./dist/u-nothing.cjs.js"
     },
     "./style.css": "./dist/theme/index.css"
   },
@@ -33,11 +33,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/angxuejian/fxxx-nothing"
+    "url": "https://github.com/angxuejian/u-nothing"
   },
-  "homepage": "https://angxuejian.github.io/fxxx-nothing/",
+  "homepage": "https://angxuejian.github.io/u-nothing/",
   "bugs": {
-    "url": "https://github.com/angxuejian/fxxx-nothing/issues"
+    "url": "https://github.com/angxuejian/u-nothing/issues"
   },
   "devDependencies": {
     "vite-plugin-dts": "4.5.4"

@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-import { uConfigProvide, uDetails } from '@fuck-nothing-dev';
+import { uConfigProvide, uDetails } from '@u-nothing-dev';
 import { onMounted } from 'vue';
 
 onMounted(() => {

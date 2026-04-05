@@ -1,4 +1,4 @@
-name: release fuck nothing
+name: release u nothing
 
 on:
   push:
@@ -48,8 +48,8 @@ jobs:
         with:
           name: core
           path: |
-            packages/fuck-nothing/dist
-            packages/fuck-nothing/package.json
+            packages/u-nothing/dist
+            packages/u-nothing/package.json
 
   publish-npm:
     needs: build
@@ -71,24 +71,24 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 24   # 一定要大于24版本的才支持 OIDC
+          node-version: 24 # 一定要大于24版本的才支持 OIDC
           registry-url: https://registry.npmjs.org
 
       - name: Download core
         uses: actions/download-artifact@v4
         with:
           name: core
-          path: packages/fuck-nothing
+          path: packages/u-nothing
 
       - name: Publish core
         run: |
-          cd packages/fuck-nothing
+          cd packages/u-nothing
           npm publish
 
       - name: Read core package version
         id: version
         run: |
-          VERSION=$(node -p 'require("./packages/fuck-nothing/package.json").version')
+          VERSION=$(node -p 'require("./packages/u-nothing/package.json").version')
           echo "RELEASE_TAG=v$VERSION" >> $GITHUB_OUTPUT
 
       - name: Create git tag

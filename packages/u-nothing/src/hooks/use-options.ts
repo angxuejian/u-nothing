@@ -1,4 +1,4 @@
 export function useOptions(name: string) {
-  const logo = 'fuck';
+  const logo = 'u';
   return `${logo}__${name}`;
 }

@@ -1,4 +1,4 @@
-# fuck.nothing
+# u.nothing
 
 Just writing casually
 
@@ -14,7 +14,7 @@ Just writing casually
 | `pnpm run docs:dev`     | 启动文档开发环境                      |
 | `pnpm run docs:build`   | 构建文档                              |
 | `pnpm run docs:preview` | 预览文档                              |
-| `pnpm run core:build`   | 构建核心库（packages/fuck-nothing）   |
+| `pnpm run core:build`   | 构建核心库（packages/u-nothing）      |
 | `pnpm run theme:build`  | 构建主题（packages/theme）            |
 | `pnpm run copy-theme`   | 拷贝主题文件到核心库目录              |
 | `pnpm run build`        | 完整构建（theme + core + copy-theme） |

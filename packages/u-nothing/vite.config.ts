@@ -16,8 +16,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: fileURLToPath(new URL('./src/index.ts', import.meta.url)),
-      name: 'fxxx-nothing',
-      fileName: (format) => `fxxx-nothing.${format}.js`,
+      name: 'u-nothing',
+      fileName: (format) => `u-nothing.${format}.js`,
       formats: ['es', 'cjs', 'umd'],
     },
 

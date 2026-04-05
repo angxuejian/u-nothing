@@ -11,6 +11,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "fxxx-nothing": "workspace:*"
+    "u-nothing": "workspace:*"
   }
 }

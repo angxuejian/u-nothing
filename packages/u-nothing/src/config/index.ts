@@ -9,7 +9,7 @@ export interface CommonProps {
   default?: boolean;
 }
 
-export const configKey = Symbol('fuck__config');
+export const configKey = Symbol('u__config');
 
 export const ConfigProviderPropsDefault = {
   default: false,

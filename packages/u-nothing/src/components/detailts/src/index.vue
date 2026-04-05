@@ -34,7 +34,7 @@ const detailsToggleHandler = (event: Event) => {
 
 watch(
   () => props.open,
-  (newVal) => {
+  (newVal: boolean) => {
     isOpen.value = newVal;
   },
 );

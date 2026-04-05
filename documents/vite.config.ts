@@ -26,8 +26,8 @@ export default defineConfig(async () => {
         '@VueMarkdown': fileURLToPath(
           new URL('./plugins/vite-plugin-vue-markdown', import.meta.url),
         ),
-        '@fuck-nothing-dev': fileURLToPath(
-          new URL('../packages/fuck-nothing/src/index.ts', import.meta.url),
+        '@u-nothing-dev': fileURLToPath(
+          new URL('../packages/u-nothing/src/index.ts', import.meta.url),
         ),
         '@theme': fileURLToPath(new URL('../packages/theme/src', import.meta.url)),
       },
@@ -56,7 +56,7 @@ export default defineConfig(async () => {
           manualChunks(id) {
             if (!id.includes('node_modules')) return;
 
-            if (id.includes('fuck-nothing')) {
+            if (id.includes('u-nothing')) {
               return 'library';
             }
             // 其他第三方使用默认打包策略
