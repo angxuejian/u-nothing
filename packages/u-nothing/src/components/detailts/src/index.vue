@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useOptions, useNamespace, useConfig } from '../../../hooks';
+import { useOptions, useNamespace, useConfig, useTestAttr } from '../../../hooks';
 import type { CommonProps } from '../../../config';
 import { ref, useSlots, watch } from 'vue';
 
@@ -20,6 +20,7 @@ const props = withDefaults(defineProps<Props>(), {
   open: false,
 });
 const emit = defineEmits<Emits>();
+const { testAttr } = useTestAttr();
 const isOpen = ref<boolean>(props.open);
 const { theme } = useConfig(props);
 
@@ -51,7 +52,12 @@ watch(
   </details>
 
   <div v-else :class="[ns.b(), ns.is('open', isOpen)]">
-    <div v-if="slots.summary" :class="ns.e('summary')" @click="detailsClickHandler">
+    <div
+      v-if="slots.summary"
+      :class="ns.e('summary')"
+      @click="detailsClickHandler"
+      v-bind="testAttr('summary')"
+    >
       <slot name="summary"></slot>
     </div>
     <div v-if="slots.default" :class="ns.e('wrapper')">

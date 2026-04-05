@@ -20,8 +20,8 @@
     "*.css"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "vite build"
+    "build": "vite build",
+    "test": "vitest"
   },
   "keywords": [
     "vue",
