@@ -30,3 +30,9 @@ $state-prefix: 'is-';
     @content;
   }
 }
+
+@mixin be($block, $element) {
+  .#{$namespace}-#{$block}__#{$element} {
+    @content;
+  }
+}

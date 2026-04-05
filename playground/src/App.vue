@@ -1,6 +1,9 @@
 <template>
-  <uConfigProvide :default="true">
-    <uDetails></uDetails>
+  <uConfigProvide :default="false">
+    <uDetails>
+      <template #summary> Details </template>
+      Some details here.
+    </uDetails>
   </uConfigProvide>
 </template>
 
