@@ -7,7 +7,7 @@ export default defineConfig(async () => {
   // const { visualizer } = await import('rollup-plugin-visualizer');
 
   return {
-    base: '/fxxx-nothing/',
+    base: '/u-nothing/',
     plugins: [
       vue({ include: [/\.vue$/, /\.md$/] }),
       vitePluginVueMarkdown(),
