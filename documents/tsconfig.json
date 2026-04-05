@@ -5,10 +5,10 @@
     "paths": {
       "@/*": ["src/*"],
       "@VueMarkdown": ["./plugins/vite-plugin-vue-markdown"],
-      "@fuck-nothing-dev": ["../packages/fuck-nothing/src/index.ts"],
+      "@u-nothing-dev": ["../packages/u-nothing/src/index.ts"],
       "@theme/*": ["../packages/theme/src/*"]
     }
   },
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "../packages/fuck-nothing/**/*"],
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "../packages/u-nothing/**/*"],
   "exclude": ["src/**/__tests__/*"]
 }

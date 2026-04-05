@@ -1,8 +1,8 @@
 {
-  "name": "fuck.nothing",
+  "name": "u.nothing",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "type-check": "vue-tsc --build",
@@ -13,9 +13,9 @@
     "docs:dev": "pnpm --filter documents dev",
     "docs:build": "pnpm --filter documents build",
     "docs:preview": "pnpm --filter documents preview",
-    "core:build": "pnpm --filter ./packages/fuck-nothing build",
+    "core:build": "pnpm --filter ./packages/u-nothing build",
     "theme:build": "pnpm --filter ./packages/theme build",
-    "copy-theme": "shx mkdir -p packages/fuck-nothing/dist/theme && shx cp -r packages/theme/dist/* packages/fuck-nothing/dist/theme",
+    "copy-theme": "shx mkdir -p packages/u-nothing/dist/theme && shx cp -r packages/theme/dist/* packages/u-nothing/dist/theme",
     "build": "pnpm theme:build && pnpm core:build && pnpm copy-theme",
     "prepare": "husky",
     "precommit": "pnpm run type-check && pnpm lint-staged"
@@ -42,7 +42,6 @@
     "eslint": "^10.0.3",
     "eslint-plugin-unused-imports": "^4.4.1",
     "eslint-plugin-vue": "^10.8.0",
-    "fast-glob": "^3.3.3",
     "husky": "^9.1.7",
     "jiti": "^2.6.1",
     "lint-staged": "^16.3.2",

@@ -1,0 +1,38 @@
+$namespace: 'u';
+$state-prefix: 'is-';
+
+@mixin b($block) {
+  .#{$namespace}-#{$block} {
+    @content;
+  }
+}
+
+@mixin e($element) {
+  &__#{$element} {
+    @content;
+  }
+}
+
+@mixin m($modifier) {
+  &--#{$modifier} {
+    @content;
+  }
+}
+
+@mixin em($element, $modifier) {
+  &__#{$element}--#{$modifier} {
+    @content;
+  }
+}
+
+@mixin is($state) {
+  &.#{$state-prefix}#{$state} {
+    @content;
+  }
+}
+
+@mixin be($block, $element) {
+  .#{$namespace}-#{$block}__#{$element} {
+    @content;
+  }
+}

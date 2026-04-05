@@ -1,0 +1,49 @@
+
+@use '../common/namespace.scss' as *;
+@use '../common//index.scss' as *;
+@use '../common/function.scss' as *;
+
+@include b('details') {
+  border-bottom: css-var('border-width-base') css-var('border-solid') css-var('border-color-primary');
+  transition: css-var('transition-all');
+
+  &:hover {
+    border-bottom-color: css-var('border-color-primary-hover');
+  }
+  &:active {
+    border-bottom-color: css-var('border-color-primary-active');
+  }
+
+  @include e('summary') {
+    cursor: pointer;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: css-var('padding-sm');
+  }
+
+  @include e('wrapper') {
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    transition: css-var('transition-all');
+  }
+
+  @include e('content') {
+    min-height: 0;
+    opacity: 0;
+    padding: 0;
+    transition: css-var('transition-all');
+  }
+
+  @include is('open') {
+    @include be('details', 'wrapper') {
+      grid-template-rows: 1fr;
+    }
+    @include be('details', 'content') {
+      opacity: 1;
+      padding: css-var('padding-sm');
+    }
+  }
+}

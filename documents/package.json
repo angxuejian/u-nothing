@@ -23,6 +23,6 @@
   "dependencies": {
     "pinia": "2.3.0",
     "vue-router": "4.5.0",
-    "fxxx-nothing": "workspace:*"
+    "u-nothing": "workspace:*"
   }
 }

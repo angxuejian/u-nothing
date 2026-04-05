@@ -1,0 +1,27 @@
+
+@use '../common/namespace.scss' as *;
+@use "sass:math";
+@use "sass:color";
+
+@mixin generate-color-vars($prefix, $name, $color) {
+  // 主色
+  --#{$prefix}#{$name}: #{$color};
+
+  // light
+  @for $i from 1 through 9 {
+    --#{$prefix}#{$name}-light-#{$i}: #{color.scale($color, $lightness: $i * 10%)};
+  }
+
+  // dark
+  // @for $i from 1 through 9 {
+  //   --#{$prefix}#{$name}-dark-#{$i}: #{color.mix(#000, $color, $i * 10%)};
+  // }
+}
+
+@function px-to-rem($px, $base: 16) {
+  @return math.div($px, $base) * 1rem;
+}
+
+@function css-var($name) {
+  @return var(--#{$namespace}-#{$name});
+}
