@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/home.vue';
+import PreviewView from '@/views/preview.vue';
 import { useMenuStore } from '@/stores/use-menu';
 
 const vueFiles = import.meta.glob('../views/docs/**/*.md');
@@ -20,14 +21,16 @@ const generateRouters = (key: string = 'zh') => {
     if (!/\//.test(pathname)) pathname = 'zh/' + pathname;
     const [lang, name] = pathname.split('/');
 
-    const l = lang === 'zh' ? '' : `/${lang}`;
-    const p = l + '/' + name;
+    const l = lang === 'zh' ? '' : `${lang}/`;
+    const p = l + name;
+    const idName = `${lang}__${toPascalCase(name)}`;
 
     const key = `${lang}_${name}`;
     if (!routerMap.has(key)) {
       routerMap.set(key, {
         path: p,
-        name,
+        pathname: idName,
+        name: name,
         lang,
       });
     }
@@ -38,7 +41,8 @@ const generateRouters = (key: string = 'zh') => {
 
     data[lang].push({
       path: p,
-      name: `${lang}.__${toPascalCase(name)}`,
+      name: idName,
+      meta: { name },
       component: vueFiles[path],
     });
   });
@@ -53,15 +57,12 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
-
-      children: generateRouters(),
     },
     {
-      path: '/en',
-      name: 'home-en',
-      component: () => import('@/views/home-en.vue'),
-      // redirect: '/en/buttom',
-      children: generateRouters('en'),
+      path: '/docs',
+      name: 'docs',
+      component: PreviewView,
+      children: [...generateRouters('zh'), ...generateRouters('en')],
     },
   ],
 });
