@@ -1,6 +1,6 @@
 {
   "name": "u-nothing",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Just writing casually",
   "main": "dist/u-nothing.cjs.js",
   "module": "dist/u-nothing.es.js",
@@ -20,8 +20,8 @@
     "*.css"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "vite build"
+    "build": "vite build",
+    "test": "vitest"
   },
   "keywords": [
     "vue",

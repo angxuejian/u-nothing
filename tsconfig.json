@@ -6,6 +6,7 @@
     { "path": "./documents" }
   ],
   "compilerOptions": {
+    "ignoreDeprecations": "6.0",
     "composite": true,
     "declaration": true,
     "declarationMap": true,
