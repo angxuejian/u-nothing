@@ -66,8 +66,9 @@ const createMarkdownit = () => {
         const { source, compomentName } = generateVueDemoComponent(templateCodeContent);
         const demoComponentStr = `<${compomentName} />`;
 
-        const newSource = source.replace(/"/g, "'");
-        return `<DemoBlock code="${newSource}">${demoComponentStr}${startTitle}`;
+        // const newSource = source.replace(/"/g, "'");
+        void source;
+        return `<DemoBlock code="${codeContent}">${demoComponentStr}${startTitle}`;
       } else {
         return `${endTitle}</DemoBlock>\n`;
       }

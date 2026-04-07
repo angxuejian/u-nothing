@@ -21,8 +21,9 @@
     "rollup-plugin-visualizer": "^7.0.1"
   },
   "dependencies": {
+    "highlight.js": "^11.11.1",
     "pinia": "2.3.0",
-    "vue-router": "4.5.0",
-    "u-nothing": "workspace:*"
+    "u-nothing": "workspace:*",
+    "vue-router": "4.5.0"
   }
 }
