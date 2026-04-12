@@ -1,12 +1,13 @@
 export interface ConfigProviderProps {
   default?: boolean;
   htmlFontSize?: number;
-  // size?: 'small' | 'default' | 'large'
+  size?: 'small' | 'medium' | 'large';
   // disabled?: boolean
 }
 
 export interface CommonProps {
   default?: boolean;
+  size?: 'small' | 'medium' | 'large';
 }
 
 export const __namespace__ = 'u';

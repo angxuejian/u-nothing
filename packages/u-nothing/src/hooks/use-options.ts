@@ -5,8 +5,12 @@ export function useOptions(name: string) {
   return `${logo}__${name}`;
 }
 
+export function useCssVar(name: string) {
+  return `--${__namespace__}-${name}`;
+}
+
 export function useStyle(name: string, value: string) {
   return {
-    [`--${__namespace__}-${name}`]: value,
+    [useCssVar(name)]: value,
   };
 }

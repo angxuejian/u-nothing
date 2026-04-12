@@ -6,7 +6,7 @@
   animation: rotate 2s linear infinite;
 
   @include e('circle') {
-    stroke: var(css-style('color'), #{css-var('color-primary')});
+    stroke: var(css-style('text-color'), #{css-var('color-primary')});
     fill: none;
     stroke-linecap: round;
     stroke-dasharray: var(css-style('dash-long'), var(css-style('circ')));

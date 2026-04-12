@@ -7,8 +7,8 @@
 $color-black: #000000;
 $color-white: #ffffff;
 
-$color-primary: rgb(230, 12, 168);
-$color-primary-alpha-1: rgba(230, 12, 168, 0.15);
+$color-primary: rgb(24, 160, 87);
+$color-primary-alpha-1: rgba(24, 160, 87, 0.15);
 
 // 字号
 $font-size-xs: px-to-rem(12);
@@ -56,6 +56,7 @@ $transition-fade: opacity 0.3s ease;
 $transition-transform: transform 0.3s ease;
 
 // 内边距
+$space-0: 2px;
 $space-1: 4px;
 $space-2: 8px;
 $space-3: 12px;
@@ -64,6 +65,8 @@ $space-5: 20px;
 $space-6: 24px;
 
 :root {
+  --#{$namespace}-color-default: #{$color-black};
+  --#{$namespace}-color-contrast: #{$color-white};
   --#{$namespace}-color-black: #{$color-black};
   --#{$namespace}-color-white: #{$color-white};
 
@@ -109,6 +112,7 @@ $space-6: 24px;
   --#{$namespace}-transition-fade: #{$transition-fade};
   --#{$namespace}-transition-transform: #{$transition-transform};
 
+  --#{$namespace}-padding-xxs: #{$space-0} #{$space-1};
   --#{$namespace}-padding-xs: #{$space-1} #{$space-2};
   --#{$namespace}-padding-sm: #{$space-2} #{$space-3};
   --#{$namespace}-padding-base: #{$space-3} #{$space-4};
