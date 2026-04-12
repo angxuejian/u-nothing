@@ -1,14 +1,11 @@
 <template>
   <uConfigProvide :default="false">
-    <uDetails>
-      <template #summary> Details </template>
-      Some details here.
-    </uDetails>
+    <uDashedLoading />
   </uConfigProvide>
 </template>
 
 <script lang="ts" setup>
-import { uConfigProvide, uDetails } from '@u-nothing-dev';
+import { uConfigProvide, uDashedLoading } from '@u-nothing-dev';
 import { onMounted } from 'vue';
 
 onMounted(() => {

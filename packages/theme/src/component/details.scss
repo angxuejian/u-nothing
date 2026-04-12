@@ -1,7 +1,5 @@
 
-@use '../common/namespace.scss' as *;
 @use '../common//index.scss' as *;
-@use '../common/function.scss' as *;
 
 @include b('details') {
   border-bottom: css-var('border-width-base') css-var('border-solid') css-var('border-color-primary');

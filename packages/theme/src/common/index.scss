@@ -1,6 +1,9 @@
 @use './function.scss' as *;
 @use './namespace.scss' as *;
 
+@forward './function.scss';
+@forward './namespace.scss';
+
 $color-black: #000000;
 $color-white: #ffffff;
 
@@ -110,4 +113,42 @@ $space-6: 24px;
   --#{$namespace}-padding-sm: #{$space-2} #{$space-3};
   --#{$namespace}-padding-base: #{$space-3} #{$space-4};
   --#{$namespace}-padding-lg: #{$space-4} #{$space-5};
+}
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+body {
+  font-family:
+    sans-serif,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    'PingFang SC',
+    'Hiragino Sans GB',
+    'Microsoft YaHei';
+
+  color: css-var('color-black');
+  background-color: css-var('color-white');
+  font-size: css-var('font-size-base');
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
