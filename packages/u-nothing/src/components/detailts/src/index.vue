@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { useOptions, useNamespace, useConfig, useTestAttr } from '../../../hooks';
-import type { CommonProps } from '../../../config';
+import { useOptions, useNamespace, useConfig, useTestAttr } from '@u-nothing/hooks';
+import type { CommonProps } from '@u-nothing/config';
 import { ref, useSlots, watch } from 'vue';
 
 interface Emits {

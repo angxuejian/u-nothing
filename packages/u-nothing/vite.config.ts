@@ -13,6 +13,11 @@ export default defineConfig({
       rollupTypes: true,
     }),
   ],
+  resolve: {
+    alias: {
+      '@u-nothing': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+  },
   build: {
     lib: {
       entry: fileURLToPath(new URL('./src/index.ts', import.meta.url)),

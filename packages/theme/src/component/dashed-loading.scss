@@ -6,10 +6,10 @@
   animation: rotate 2s linear infinite;
 
   @include e('circle') {
-    stroke: css-var('color-primary');
+    stroke: var(css-style('color'), #{css-var('color-primary')});
     fill: none;
     stroke-linecap: round;
-    stroke-dasharray: var(--dash-long) var(--circ);
+    stroke-dasharray: var(css-style('dash-long'), var(css-style('circ')));
     stroke-dashoffset: 0;
     animation: breathing 1.5s ease-in-out infinite, flowing 1.5s linear infinite;;
     transform-origin: center;
@@ -24,18 +24,18 @@
 
 @keyframes flowing {
   100% {
-    stroke-dashoffset: calc(-1 * var(--circ));
+    stroke-dashoffset: calc(-1 * var(css-style('circ')));
   }
 }
 
 @keyframes breathing  {
   0% {
-    stroke-dasharray: 1, var(--circ);
+    stroke-dasharray: 1, var(css-style('circ'));
   }
   50% {
-    stroke-dasharray: var(--dash-long), var(--circ);
+    stroke-dasharray: var(css-style('dash-long')), var(css-style('circ'));
   }
   100% {
-    stroke-dasharray: var(--dash-long), var(--circ);
+    stroke-dasharray: var(css-style('dash-long')), var(css-style('circ'));
   }
 }

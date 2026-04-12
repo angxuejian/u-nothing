@@ -5,7 +5,7 @@
     "paths": {
       "@/*": ["src/*"],
       "@VueMarkdown": ["./plugins/vite-plugin-vue-markdown"],
-      "@u-nothing-dev": ["../packages/u-nothing/src/index.ts"],
+      "@u-nothing/*": ["../packages/u-nothing/src/*"],
       "@theme/*": ["../packages/theme/src/*"]
     }
   },

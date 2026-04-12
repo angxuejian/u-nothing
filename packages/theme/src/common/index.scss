@@ -1,8 +1,8 @@
-@use './function.scss' as *;
 @use './namespace.scss' as *;
+@use './function.scss' as *;
 
-@forward './function.scss';
 @forward './namespace.scss';
+@forward './function.scss';
 
 $color-black: #000000;
 $color-white: #ffffff;

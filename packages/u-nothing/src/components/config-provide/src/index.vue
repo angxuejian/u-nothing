@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { provide, reactive, onMounted, watch } from 'vue';
-import { configKey, ConfigProviderProps, ConfigProviderPropsDefault } from '../../../config';
+import { configKey, ConfigProviderProps, ConfigProviderPropsDefault } from '@u-nothing/config';
 
 const props = withDefaults(defineProps<ConfigProviderProps>(), ConfigProviderPropsDefault);
 

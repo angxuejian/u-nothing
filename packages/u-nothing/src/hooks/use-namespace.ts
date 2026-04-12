@@ -1,5 +1,7 @@
+import { __namespace__ } from '@u-nothing/config';
+
 export function useNamespace(block: string) {
-  const namespace = 'u';
+  const namespace = __namespace__;
   const statePrefix = 'is-';
 
   const b = () => `${namespace}-${block}`;

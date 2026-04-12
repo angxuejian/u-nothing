@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useOptions, useNamespace } from '../../../hooks';
+import { useOptions, useNamespace, useStyle } from '@u-nothing/hooks';
 import { computed } from 'vue';
 
 interface Props {
@@ -37,9 +37,9 @@ const dashGap = computed(() => +(circumference.value - dashLong.value).toFixed(2
 const svgStyle = computed(() => ({
   width: `${viewBoxSize.value}px`,
   height: `${viewBoxSize.value}px`,
-  '--circ': `${circumference.value}px`,
-  '--dash-long': `${dashLong.value}px`,
-  '--dash-gap': `${dashGap.value}px`,
+  ...useStyle('circ', `${circumference.value}px`),
+  ...useStyle('dash-long', `${dashLong.value}px`),
+  ...useStyle('dash-gap', `${dashGap.value}px`),
 }));
 </script>
 
