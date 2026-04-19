@@ -16,7 +16,7 @@
     "theme:build": "pnpm --filter ./packages/theme build",
     "copy-theme": "shx mkdir -p packages/u-nothing/dist/theme && shx cp -r packages/theme/dist/* packages/u-nothing/dist/theme",
     "build": "pnpm theme:build && pnpm core:build && pnpm copy-theme",
-    "test": "pnpm --filter ./packages/u-nothing test",
+    "test:unit": "pnpm --filter ./packages/u-nothing test:unit",
     "prepare": "husky",
     "precommit": "pnpm run type-check && pnpm lint-staged"
   },

@@ -83,6 +83,7 @@ const buttonStyle = computed(() => {
       :padding="loadingProps.padding"
       :radius="loadingProps.radius"
       :class="ns.e('loading')"
+      v-bind="testAttr('button-loading')"
       v-if="props.loading"
     />
 

@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
 import UDashedLoading from '../src/index.vue';
+import { useCssVar } from '@u-nothing/hooks';
 
 describe('UDashedLoading', () => {
   it('should render component', () => {
@@ -55,9 +56,9 @@ describe('UDashedLoading', () => {
     });
     const svg = wrapper.find('svg');
     const style = svg.attributes('style');
-    expect(style).toContain('--circ');
-    expect(style).toContain('--dash-long');
-    expect(style).toContain('--dash-gap');
+    expect(style).toContain(useCssVar('circ'));
+    expect(style).toContain(useCssVar('dash-long'));
+    expect(style).toContain(useCssVar('dash-gap'));
   });
 
   it('should clamp dashedPercent between 0 and 1', () => {
