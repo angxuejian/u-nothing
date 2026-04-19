@@ -61,7 +61,6 @@ onMounted(() => {
   margin: 0 auto;
   margin-top: 20px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
   gap: 20px;
 
@@ -86,6 +85,7 @@ onMounted(() => {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
   }
   li {
     list-style: none;

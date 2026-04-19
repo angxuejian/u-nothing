@@ -26,9 +26,7 @@ export default defineConfig(async () => {
         '@VueMarkdown': fileURLToPath(
           new URL('./plugins/vite-plugin-vue-markdown', import.meta.url),
         ),
-        '@u-nothing-dev': fileURLToPath(
-          new URL('../packages/u-nothing/src/index.ts', import.meta.url),
-        ),
+        '@u-nothing': fileURLToPath(new URL('../packages/u-nothing/src', import.meta.url)),
         '@theme': fileURLToPath(new URL('../packages/theme/src', import.meta.url)),
       },
     },

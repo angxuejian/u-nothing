@@ -1,0 +1,129 @@
+@use '../common//index.scss' as *;
+
+@include b('button') {
+  all: unset;
+
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  user-select: none;
+
+  font: inherit;
+  color: inherit;
+  transition: all 0.3s ease-in-out;
+  white-space: nowrap;
+  // background-color: var(css-style('color'), #{css-var('color-primary')});
+  // color: var(css-style('text-color'), #{css-var('color-primary')});
+  font-size: css-var('font-size-base');
+  padding: css-var('padding-xs');
+  border-radius: css-var('border-radius-base');
+  // border: css-var('border-width-base') css-var('border-solid') var(css-style('color'), #{css-var('color-primary')});
+
+  @include is('loading') {
+    cursor: wait;
+  }
+  @include is('disabled') {
+    cursor: not-allowed;
+    opacity: 0.8;
+  }
+
+  @include is('small') {
+    padding: css-var('padding-xxs');
+    font-size: css-var('font-size-sm');
+  }
+  @include is('medium') {
+    padding: css-var('padding-xs');
+    font-size: css-var('font-size-base');
+  }
+  @include is('large') {
+    padding: css-var('padding-sm');
+    font-size: css-var('font-size-xl');
+  }
+
+  @include is('primary') {
+    background-color: var(css-style('color'), #{css-var('color-primary')});
+    color: var(css-style('text-color'), #{css-var('color-primary')});
+    border: css-var('border-width-base') css-var('border-solid') var(css-style('color'), #{css-var('color-primary')});
+
+    &:hover:not(.is-loading):not(:disabled) {
+      background-color: color-mix(in srgb, var(css-style('color'), #{css-var('color-primary')}), white 40%);
+      border-color: color-mix(in srgb, var(css-style('color'), #{css-var('color-primary')}), white 40%);
+    }
+    &:active:not(.is-loading):not(:disabled) {
+      background-color: color-mix(in srgb, var(css-style('color'), #{css-var('color-primary')}), white 60%);
+      border-color: color-mix(in srgb, var(css-style('color'), #{css-var('color-primary')}), white 60%);
+    }
+    @include is('disabled') {
+      background: color-mix(in srgb, var(css-style('color'), #{css-var('color-primary')}), gray 20%);
+      border-color: color-mix(in srgb, var(css-style('color'), #{css-var('color-primary')}), gray 20%);
+    }
+
+  }
+
+
+  @include is('text') {
+    background: transparent;
+    border: none;
+    color: var(css-style('color'), #{css-var('color-primary')});
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: transparent;
+      width: 0;
+      height: 1px;
+      transition: 0.3s all ease-in-out;
+    }
+
+    &:hover:not(.is-loading):not(:disabled) {
+      color: color-mix(in srgb, var(css-style('color'), #{css-var('color-primary')}), white 40%);
+      &::after {
+        background-color: color-mix(in srgb, var(css-style('color'), #{css-var('color-primary')}), white 40%);;
+        width: 100%;
+      }
+    }
+    &:active:not(.is-loading):not(:disabled) {
+      color: color-mix(in srgb, var(css-style('color'), #{css-var('color-primary')}), white 60%);
+      &::after {
+        background-color: color-mix(in srgb, var(css-style('color'), #{css-var('color-primary')}), white 60%);
+        width: 100%;
+      }
+    }
+    @include is('disabled') {
+      color: color-mix(in srgb, var(css-style('color'), #{css-var('color-primary')}), gray 20%);
+    }
+  }
+
+  @include is('plain') {
+    background: transparent;
+    border: css-var('border-width-base') css-var('border-solid') var(css-style('color'), #{css-var('color-primary')});
+    color: var(css-style('color'), #{css-var('color-primary')});
+
+    &:hover:not(.is-loading):not(:disabled) {
+      color: var(css-style('text-focus-color'), #{css-var('color-primary')});
+      background-color: color-mix(in srgb, var(css-style('color'), #{css-var('color-primary')}), white 40%);
+      border-color: color-mix(in srgb, var(css-style('color'), #{css-var('color-primary')}), white 40%);
+    }
+    &:active:not(.is-loading):not(:disabled) {
+      color: var(css-style('text-focus-color'), #{css-var('color-primary')});
+      background-color: color-mix(in srgb, var(css-style('color'), #{css-var('color-primary')}), white 60%);
+      border-color: color-mix(in srgb, var(css-style('color'), #{css-var('color-primary')}), white 60%);
+    }
+    @include is('disabled') {
+      color: color-mix(in srgb, var(css-style('color'), #{css-var('color-primary')}), gray 20%);
+      border-color: color-mix(in srgb, var(css-style('color'), #{css-var('color-primary')}), gray 20%);
+    }
+  }
+
+
+  @include e('loading') {
+    margin-right: 6px;
+  }
+}

@@ -13,9 +13,10 @@ Some details here.
 
 ## Props
 
-| Prop Name | Description                    | Type    | Default |
-| --------- | ------------------------------ | ------- | ------- |
-| open      | Whether the content is visible | boolean | false   |
+| Prop Name | Description                              | Type    | Default |
+| --------- | ---------------------------------------- | ------- | ------- |
+| open      | Whether the content is visible           | boolean | false   |
+| default   | Whether to use the default browser style | boolean | false   |
 
 ## Slots
 

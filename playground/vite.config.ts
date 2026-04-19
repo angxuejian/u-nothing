@@ -7,7 +7,7 @@ export default defineConfig({
 
   resolve: {
     alias: {
-      '@u-nothing-dev': fileURLToPath(new URL('../packages/u-nothing/src', import.meta.url)),
+      '@u-nothing': fileURLToPath(new URL('../packages/u-nothing/src', import.meta.url)),
       '@theme': fileURLToPath(new URL('../packages/theme/src', import.meta.url)),
     },
   },
