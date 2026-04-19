@@ -20,3 +20,4 @@ Just writing casually
 | `pnpm run build`        | 完整构建（theme + core + copy-theme） |
 | `pnpm run prepare`      | 初始化 Husky                          |
 | `pnpm run precommit`    | 提交前执行 type-check + lint-staged   |
+| `pnpm test:unit`        | 单元测试                              |
