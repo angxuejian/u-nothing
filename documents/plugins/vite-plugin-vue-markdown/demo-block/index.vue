@@ -9,7 +9,7 @@
         <div class="front">
           <slot />
         </div>
-        <div class="back">
+        <div contenteditable="true" class="back">
           <pre class="theme-atom-one-dark"><code v-html="highlightedCode"></code></pre>
         </div>
       </div>
@@ -91,10 +91,13 @@ const clickHandler = () => {
 
   .front {
     background: #fff;
+    user-select: none;
   }
   .back {
     background: #fff;
     transform: rotateX(180deg); /* 背面旋转180度 */
+    border: none;
+    outline: none;
   }
 
   pre,
