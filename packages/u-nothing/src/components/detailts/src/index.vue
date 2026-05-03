@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { useOptions, useNamespace, useConfig, useTestAttr } from '@u-nothing/hooks';
 import type { CommonProps } from '@u-nothing/config';
-import { __DEFAULT__ } from '@u-nothing/config';
 import { ref, useSlots, watch } from 'vue';
 
 interface Emits {
@@ -43,7 +42,7 @@ watch(
 </script>
 
 <template>
-  <details @toggle="detailsToggleHandler" :open="isOpen" v-if="theme === __DEFAULT__">
+  <details @toggle="detailsToggleHandler" :open="isOpen" v-if="theme === 'browser'">
     <summary v-if="slots.summary">
       <slot name="summary"></slot>
     </summary>

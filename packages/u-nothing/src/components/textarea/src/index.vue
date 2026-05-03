@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { useOptions, useNamespace, useConfig, useTestAttr } from '@u-nothing/hooks';
 import type { CommonProps } from '@u-nothing/config';
-import { __DEFAULT__ } from '@u-nothing/config';
 import { computed, ref, type Ref, onMounted, onUnmounted } from 'vue';
 
 interface Emits {
@@ -149,7 +148,7 @@ onUnmounted(() => {
     :rows="minRows"
     ref="textareaRef"
     @input="onInputHandler"
-    v-if="theme === __DEFAULT__"
+    v-if="theme === 'browser'"
   ></textarea>
 
   <textarea
