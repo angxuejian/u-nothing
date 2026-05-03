@@ -13,10 +13,11 @@
 
 ## Props
 
-| 属性名  | 说明                 | 类型    | 默认值 |
-| ------- | -------------------- | ------- | ------ |
-| open    | 内容是否可见         | boolean | false  |
-| default | 是否为浏览器默认样式 | boolean | false  |
+| 属性名 | 说明         | 类型                         | 默认值   |
+| ------ | ------------ | ---------------------------- | -------- |
+| open   | 内容是否可见 | boolean                      | false    |
+| size   | 组件尺寸     | `small` / `medium` / `large` | `medium` |
+| theme  | 样式主题     | `browser` / `ustyle`         | `ustyle` |
 
 ## 插槽
 

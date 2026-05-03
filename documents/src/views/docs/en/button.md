@@ -26,8 +26,8 @@ A `button` element
 | disabled  | Whether the button is disabled              | boolean                      | false    |
 | text      | Whether to use text-style button            | boolean                      | false    |
 | plain     | Whether to use plain-style button           | boolean                      | fasle    |
-| default   | Whether to use the default browser style    | boolean                      | false    |
-| size      | Size of the button                          | `small` / `medium` / `large` | `medium` |
+| size      | Component size                              | `small` / `medium` / `large` | `medium` |
+| theme     | Theme style                                 | `browser` / `ustyle`         | `ustyle` |
 
 ## Slots
 

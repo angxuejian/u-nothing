@@ -1,4 +1,4 @@
-@use '../common//index.scss' as *;
+@use '../common/index.scss' as *;
 
 @include b('button') {
   all: unset;
@@ -16,12 +16,11 @@
   color: inherit;
   transition: all 0.3s ease-in-out;
   white-space: nowrap;
-  // background-color: var(css-style('color'), #{css-var('color-primary')});
-  // color: var(css-style('text-color'), #{css-var('color-primary')});
-  font-size: css-var('font-size-base');
-  padding: css-var('padding-xs');
+  font-size: css-var('size-token-font-size');
+  padding: css-var('size-token-padding');
+      line-height: css-var('size-token-line-height');
+
   border-radius: css-var('border-radius-base');
-  // border: css-var('border-width-base') css-var('border-solid') var(css-style('color'), #{css-var('color-primary')});
 
   @include is('loading') {
     cursor: wait;
@@ -29,19 +28,6 @@
   @include is('disabled') {
     cursor: not-allowed;
     opacity: 0.8;
-  }
-
-  @include is('small') {
-    padding: css-var('padding-xxs');
-    font-size: css-var('font-size-sm');
-  }
-  @include is('medium') {
-    padding: css-var('padding-xs');
-    font-size: css-var('font-size-base');
-  }
-  @include is('large') {
-    padding: css-var('padding-sm');
-    font-size: css-var('font-size-xl');
   }
 
   @include is('primary') {

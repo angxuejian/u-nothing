@@ -1,5 +1,5 @@
 
-@use '../common//index.scss' as *;
+@use '../common/index.scss' as *;
 
 @include b('dashed-loading') {
   display: inline-block;

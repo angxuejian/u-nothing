@@ -8,6 +8,7 @@ import {
   useCssVar,
 } from '@u-nothing/hooks';
 import type { CommonProps } from '@u-nothing/config';
+import { __DEFAULT__ } from '@u-nothing/config';
 import { computed } from 'vue';
 import uDashedLoading from '@u-nothing/components/dashed-loading';
 
@@ -27,37 +28,20 @@ const ns = useNamespace('button');
 const props = withDefaults(defineProps<Props>(), {
   loading: false,
 });
+
 const { testAttr } = useTestAttr();
-const { theme } = useConfig(props);
+const { theme, sizeVal, sizeClass } = useConfig(props);
 
 const buttonClass = computed(() => {
-  if (theme.value) {
-    return [];
-  } else {
-    return [
-      ns.b(),
-      ns.is('disabled', props.disabled),
-      ns.is('loading', props.loading),
-      ns.is('small', props.size === 'small'),
-      ns.is('medium', props.size === 'medium'),
-      ns.is('large', props.size === 'large'),
-      ns.is('primary', !props.text && !props.plain),
-      ns.is('text', props.text),
-      ns.is('plain', props.plain),
-    ];
-  }
-});
-
-const loadingProps = computed(() => {
-  if (props.size === 'small') {
-    return { padding: 0.5, radius: 6 };
-  } else if (props.size === 'medium') {
-    return { padding: 0.5, radius: 8 };
-  } else if (props.size === 'large') {
-    return { padding: 0.5, radius: 10 };
-  } else {
-    return { padding: 0.5, radius: 8 };
-  }
+  return [
+    ns.b(),
+    ns.is('disabled', props.disabled),
+    ns.is('loading', props.loading),
+    ns.is('primary', !props.text && !props.plain),
+    ns.is('text', props.text),
+    ns.is('plain', props.plain),
+    sizeClass.value,
+  ];
 });
 
 const buttonStyle = computed(() => {
@@ -74,14 +58,22 @@ const buttonStyle = computed(() => {
 
 <template>
   <button
+    v-if="theme === __DEFAULT__"
+    v-bind="{ ...$attrs, ...testAttr('button') }"
+    :disabled="props.disabled"
+  >
+    <slot />
+  </button>
+
+  <button
+    v-else
     :style="buttonStyle"
     v-bind="{ ...$attrs, ...testAttr('button') }"
     :class="buttonClass"
     :disabled="props.disabled || props.loading"
   >
     <uDashedLoading
-      :padding="loadingProps.padding"
-      :radius="loadingProps.radius"
+      :size="sizeVal"
       :class="ns.e('loading')"
       v-bind="testAttr('button-loading')"
       v-if="props.loading"

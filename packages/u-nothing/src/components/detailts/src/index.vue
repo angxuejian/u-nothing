@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { useOptions, useNamespace, useConfig, useTestAttr } from '@u-nothing/hooks';
 import type { CommonProps } from '@u-nothing/config';
+import { __DEFAULT__ } from '@u-nothing/config';
 import { ref, useSlots, watch } from 'vue';
 
 interface Emits {
@@ -22,7 +23,7 @@ const props = withDefaults(defineProps<Props>(), {
 const emit = defineEmits<Emits>();
 const { testAttr } = useTestAttr();
 const isOpen = ref<boolean>(props.open);
-const { theme } = useConfig(props);
+const { theme, sizeClass } = useConfig(props);
 
 const detailsClickHandler = () => {
   isOpen.value = !isOpen.value;
@@ -42,7 +43,7 @@ watch(
 </script>
 
 <template>
-  <details @toggle="detailsToggleHandler" :open="isOpen" v-if="theme">
+  <details @toggle="detailsToggleHandler" :open="isOpen" v-if="theme === __DEFAULT__">
     <summary v-if="slots.summary">
       <slot name="summary"></slot>
     </summary>
@@ -51,7 +52,7 @@ watch(
     </template>
   </details>
 
-  <div v-else :class="[ns.b(), ns.is('open', isOpen)]">
+  <div v-else :class="[ns.b(), ns.is('open', isOpen), sizeClass]">
     <div
       v-if="slots.summary"
       :class="ns.e('summary')"

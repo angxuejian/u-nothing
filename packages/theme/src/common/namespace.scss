@@ -26,9 +26,19 @@ $state-prefix: 'is-';
 }
 
 @mixin is($state) {
+
   &.#{$state-prefix}#{$state} {
     @content;
   }
+  // @if & {
+  //   &.#{$state-prefix}#{$state} {
+  //     @content;
+  //   }
+  // } @else {
+  //   .#{$state-prefix}#{$state} {
+  //     @content;
+  //   }
+  // }
 }
 
 @mixin be($block, $element) {

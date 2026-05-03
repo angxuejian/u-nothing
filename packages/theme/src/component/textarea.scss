@@ -1,0 +1,29 @@
+@use '../common/index.scss' as *;
+
+@include b('textarea') {
+  outline: none;
+  border: css-var('border-width-base') css-var('border-solid') css-var('border-color');
+  border-radius: css-var('border-radius-sm');
+  transition: css-var('transition-all');
+  font-size: css-var('size-token-font-size');
+  padding: css-var('size-token-padding');
+  line-height: css-var('size-token-line-height');
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-break: normal;
+
+  &:hover:not(:disabled) {
+    border-color:css-var('color-primary');
+  }
+
+  &:focus:not(:disabled) {
+    border-color: css-var('color-primary');
+    box-shadow: css-var('shadow-primary');
+  }
+
+  @include is('disabled') {
+    cursor: not-allowed;
+    opacity: 0.8;
+    resize: none !important;
+  }
+}

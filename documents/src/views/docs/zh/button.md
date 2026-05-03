@@ -26,8 +26,8 @@
 | disabled | 是否为禁用状态                            | boolean                      | false    |
 | text     | 是否为文本按钮                            | boolean                      | false    |
 | plain    | 是否为朴素按钮                            | boolean                      | fasle    |
-| default  | 是否为浏览器默认样式                      | boolean                      | false    |
-| size     | 按钮尺寸                                  | `small` / `medium` / `large` | `medium` |
+| size     | 组件尺寸                                  | `small` / `medium` / `large` | `medium` |
+| theme    | 样式主题                                  | `browser` / `ustyle`         | `ustyle` |
 
 ## 插槽
 
