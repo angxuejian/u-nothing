@@ -23,7 +23,7 @@ const props = withDefaults(defineProps<Props>(), {
 const emit = defineEmits<Emits>();
 const { testAttr } = useTestAttr();
 const isOpen = ref<boolean>(props.open);
-const { theme } = useConfig(props);
+const { theme, sizeClass } = useConfig(props);
 
 const detailsClickHandler = () => {
   isOpen.value = !isOpen.value;
@@ -52,7 +52,7 @@ watch(
     </template>
   </details>
 
-  <div v-else :class="[ns.b(), ns.is('open', isOpen)]">
+  <div v-else :class="[ns.b(), ns.is('open', isOpen), sizeClass]">
     <div
       v-if="slots.summary"
       :class="ns.e('summary')"

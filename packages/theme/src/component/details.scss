@@ -18,7 +18,9 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    padding: css-var('padding-sm');
+    font-size: css-var('size-token-font-size');
+    padding: css-var('size-token-padding');
+    // padding: css-var('padding-sm');
   }
 
   @include e('wrapper') {
@@ -41,7 +43,9 @@
     }
     @include be('details', 'content') {
       opacity: 1;
-      padding: css-var('padding-sm');
+      // padding: css-var('padding-sm');
+      font-size: css-var('size-token-font-size');
+      padding: css-var('size-token-padding');
     }
   }
 }

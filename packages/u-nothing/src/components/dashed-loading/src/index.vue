@@ -1,12 +1,20 @@
 <script lang="ts" setup>
 import { useOptions, useNamespace, useStyle } from '@u-nothing/hooks';
 import { computed } from 'vue';
+import {
+  type __TYPE_SMALL__,
+  type __TYPE_MEDIUM__,
+  type __TYPE_LARGE__,
+  __SMALL__,
+  __LARGE__,
+} from '@u-nothing/config';
 
 interface Props {
   radius?: number;
   strokeWidth?: number;
   padding?: number;
   dashedPercent?: number;
+  size?: __TYPE_SMALL__ | __TYPE_MEDIUM__ | __TYPE_LARGE__;
 }
 
 defineOptions({
@@ -21,16 +29,30 @@ const props = withDefaults(defineProps<Props>(), {
   dashedPercent: 0.75,
 });
 
+const sizeVal = computed(() => {
+  if (!props.size) {
+    return { radius: props.radius, padding: props.padding };
+  } else {
+    let radius = 8;
+    if (props.size === __SMALL__) {
+      radius = 6;
+    } else if (props.size === __LARGE__) {
+      radius = 10;
+    }
+    return { padding: 0.5, radius };
+  }
+});
+
 const percent = computed(() => Math.max(0, Math.min(props.dashedPercent, 1)));
 
 // svg + circle size
-const outer = computed(() => props.radius + props.strokeWidth + props.padding);
+const outer = computed(() => sizeVal.value.radius + props.strokeWidth + sizeVal.value.padding);
 const viewBoxSize = computed(() => Math.ceil(outer.value * 2));
 const viewBox = computed(() => `0 0 ${viewBoxSize.value} ${viewBoxSize.value}`);
 const center = computed(() => outer.value);
 
 // 圆周长
-const circumference = computed(() => +(2 * Math.PI * props.radius).toFixed(2));
+const circumference = computed(() => +(2 * Math.PI * sizeVal.value.radius).toFixed(2));
 const dashLong = computed(() => +(circumference.value * percent.value).toFixed(2));
 const dashGap = computed(() => +(circumference.value - dashLong.value).toFixed(2));
 
@@ -50,7 +72,7 @@ const svgStyle = computed(() => ({
       :cx="center"
       :stroke-width="props.strokeWidth"
       :cy="center"
-      :r="props.radius"
+      :r="sizeVal.radius"
     ></circle>
   </svg>
 </template>
