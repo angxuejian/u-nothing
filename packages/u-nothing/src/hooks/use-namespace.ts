@@ -14,3 +14,18 @@ export function useNamespace(block: string) {
 
   return { b, e, m, em, is };
 }
+
+export function useOptions(name: string) {
+  const namespace = __namespace__;
+  return `${namespace}__${name}`;
+}
+
+export function useCssVar(name: string) {
+  return `--${__namespace__}-${name}`;
+}
+
+export function useStyle(name: string, value: string) {
+  return {
+    [useCssVar(name)]: value,
+  };
+}

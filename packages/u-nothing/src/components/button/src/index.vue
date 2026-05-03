@@ -8,6 +8,7 @@ import {
   useCssVar,
 } from '@u-nothing/hooks';
 import type { CommonProps } from '@u-nothing/config';
+import { __DEFAULT__ } from '@u-nothing/config';
 import { computed } from 'vue';
 import uDashedLoading from '@u-nothing/components/dashed-loading';
 
@@ -27,25 +28,22 @@ const ns = useNamespace('button');
 const props = withDefaults(defineProps<Props>(), {
   loading: false,
 });
+
 const { testAttr } = useTestAttr();
 const { theme } = useConfig(props);
 
 const buttonClass = computed(() => {
-  if (theme.value) {
-    return [];
-  } else {
-    return [
-      ns.b(),
-      ns.is('disabled', props.disabled),
-      ns.is('loading', props.loading),
-      ns.is('small', props.size === 'small'),
-      ns.is('medium', props.size === 'medium'),
-      ns.is('large', props.size === 'large'),
-      ns.is('primary', !props.text && !props.plain),
-      ns.is('text', props.text),
-      ns.is('plain', props.plain),
-    ];
-  }
+  return [
+    ns.b(),
+    ns.is('disabled', props.disabled),
+    ns.is('loading', props.loading),
+    ns.is('small', props.size === 'small'),
+    ns.is('medium', props.size === 'medium'),
+    ns.is('large', props.size === 'large'),
+    ns.is('primary', !props.text && !props.plain),
+    ns.is('text', props.text),
+    ns.is('plain', props.plain),
+  ];
 });
 
 const loadingProps = computed(() => {
@@ -74,6 +72,15 @@ const buttonStyle = computed(() => {
 
 <template>
   <button
+    v-if="theme === __DEFAULT__"
+    v-bind="{ ...$attrs, ...testAttr('button') }"
+    :disabled="props.disabled"
+  >
+    <slot />
+  </button>
+
+  <button
+    v-else
     :style="buttonStyle"
     v-bind="{ ...$attrs, ...testAttr('button') }"
     :class="buttonClass"

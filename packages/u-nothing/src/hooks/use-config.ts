@@ -1,13 +1,18 @@
-import { ConfigProviderPropsDefault, configKey, CommonProps, ConfigProviderProps } from '../config';
+import {
+  ConfigProviderPropsDefault,
+  ConfigProviderKey,
+  CommonProps,
+  ConfigProviderProps,
+} from '../config';
 import { computed, inject } from 'vue';
 
 export function useConfig(props: CommonProps) {
-  const configInject = inject<ConfigProviderProps>(configKey, ConfigProviderPropsDefault);
+  const configInject = inject<ConfigProviderProps>(ConfigProviderKey, ConfigProviderPropsDefault);
 
   const config = configInject;
 
   const theme = computed(() => {
-    return props.default || config.default;
+    return props.theme || config.theme;
   });
 
   return { config, theme };

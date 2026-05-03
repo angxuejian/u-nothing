@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { provide, reactive, onMounted, watch } from 'vue';
-import { configKey, ConfigProviderProps, ConfigProviderPropsDefault } from '@u-nothing/config';
+import {
+  ConfigProviderKey,
+  ConfigProviderProps,
+  ConfigProviderPropsDefault,
+} from '@u-nothing/config';
 
 const props = withDefaults(defineProps<ConfigProviderProps>(), ConfigProviderPropsDefault);
 
@@ -22,7 +26,7 @@ const setHtmlFontSize = () => {
 };
 
 const config = reactive(props);
-provide(configKey, config);
+provide(ConfigProviderKey, config);
 </script>
 
 <template>
