@@ -8,7 +8,6 @@ import {
   useCssVar,
 } from '@u-nothing/hooks';
 import type { CommonProps } from '@u-nothing/config';
-import { __DEFAULT__ } from '@u-nothing/config';
 import { computed } from 'vue';
 import uDashedLoading from '@u-nothing/components/dashed-loading';
 
@@ -58,7 +57,7 @@ const buttonStyle = computed(() => {
 
 <template>
   <button
-    v-if="theme === __DEFAULT__"
+    v-if="theme === 'browser'"
     v-bind="{ ...$attrs, ...testAttr('button') }"
     :disabled="props.disabled"
   >

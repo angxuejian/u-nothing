@@ -1,7 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
 import UDetails from '../src/index.vue';
-import { __DEFAULT__, __UNOTHING__ } from '@u-nothing/config';
 
 describe('UDetails', () => {
   it('should render component', () => {
@@ -13,7 +12,7 @@ describe('UDetails', () => {
     const wrapperDefaultTheme = mount(UDetails, {
       props: {
         open: true,
-        theme: __DEFAULT__,
+        theme: 'browser',
       },
       slots: {
         default: 'content',
@@ -23,7 +22,7 @@ describe('UDetails', () => {
     const wrapperUTheme = mount(UDetails, {
       props: {
         open: true,
-        theme: __UNOTHING__,
+        theme: 'ustyle',
       },
       slots: {
         default: 'content',

@@ -1,20 +1,14 @@
 <script lang="ts" setup>
 import { useOptions, useNamespace, useStyle } from '@u-nothing/hooks';
 import { computed } from 'vue';
-import {
-  type __TYPE_SMALL__,
-  type __TYPE_MEDIUM__,
-  type __TYPE_LARGE__,
-  __SMALL__,
-  __LARGE__,
-} from '@u-nothing/config';
+import { type Size } from '@u-nothing/config';
 
 interface Props {
   radius?: number;
   strokeWidth?: number;
   padding?: number;
   dashedPercent?: number;
-  size?: __TYPE_SMALL__ | __TYPE_MEDIUM__ | __TYPE_LARGE__;
+  size?: Size;
 }
 
 defineOptions({
@@ -34,9 +28,9 @@ const sizeVal = computed(() => {
     return { radius: props.radius, padding: props.padding };
   } else {
     let radius = 8;
-    if (props.size === __SMALL__) {
+    if (props.size === 'small') {
       radius = 6;
-    } else if (props.size === __LARGE__) {
+    } else if (props.size === 'large') {
       radius = 10;
     }
     return { padding: 0.5, radius };
