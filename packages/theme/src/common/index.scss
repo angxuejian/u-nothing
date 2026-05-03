@@ -24,7 +24,9 @@ $font-weight-medium: 500;
 $font-weight-bold: 700;
 
 // 行高
+$line-height-sm: 1.6;
 $line-height-base: 1.6;
+$line-height-lg: 1.6;
 
 // 边框宽度
 $border-width-base: 1px;
@@ -48,7 +50,7 @@ $shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
 $shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.16);
 
 // 主题阴影
-$shadow-primary: 0 4px 12px $color-primary-alpha-1;
+$shadow-primary: 0 0 0 2px $color-primary-alpha-1;
 
 // 动效
 $transition-all: all 0.3s ease;
@@ -83,14 +85,19 @@ $space-6: 24px;
   --#{$namespace}-font-weight-medium: #{$font-weight-medium};
   --#{$namespace}-font-weight-bold: #{$font-weight-bold};
 
+  --#{$namespace}-line-height-sm: #{$line-height-sm};
   --#{$namespace}-line-height-base: #{$line-height-base};
+  --#{$namespace}-line-height-lg: #{$line-height-lg};
 
   --#{$namespace}-border-width-base: #{$border-width-base};
   --#{$namespace}-border-width-lg: #{$border-width-lg};
 
+  --#{$namespace}-border-color: #dcdfe6;
+  --#{$namespace}-border-color-disabled: #e4e7ed;
   --#{$namespace}-border-color-primary: #{css-var('color-primary-light-8')};
   --#{$namespace}-border-color-primary-hover: #{css-var('color-primary-light-3')};
   --#{$namespace}-border-color-primary-active: #{css-var('color-primary')};
+  // --#{$namespace}-border-color-primary-focus: #{css-var('color-primary-alpha-1')};
 
   --#{$namespace}-border-solid: #{$border-solid};
 
@@ -114,24 +121,28 @@ $space-6: 24px;
 
   --#{$namespace}-padding-sm: #{$space-0} #{$space-1};
   --#{$namespace}-padding-base: #{$space-1} #{$space-2};
-  --#{$namespace}-padding-lg: #{$space-3} #{$space-4};
+  --#{$namespace}-padding-lg: 6px 10px;
 }
 
 
 // size token
 :root {
-
   --#{$namespace}-size-token-padding: #{css-var('padding-base')};
   --#{$namespace}-size-token-font-size: #{css-var('font-size-base')};
+  --#{$namespace}-size-token-line-height: #{css-var('line-height-base')};
 }
 
 .is-small {
   --#{$namespace}-size-token-padding: #{css-var('padding-sm')};
   --#{$namespace}-size-token-font-size: #{css-var('font-size-sm')};
+    --#{$namespace}-size-token-line-height: #{css-var('line-height-sm')};
+
 }
 
 .is-large {
-  --#{$namespace}-size-token-padding: #{css-var('padding-base')};
-  --#{$namespace}-size-token-font-size: #{css-var('font-size-xl')};
+  --#{$namespace}-size-token-padding: #{css-var('padding-lg')};
+  --#{$namespace}-size-token-font-size: #{css-var('font-size-lg')};
+  --#{$namespace}-size-token-line-height: #{css-var('line-height-lg')};
+
 }
 // size token end

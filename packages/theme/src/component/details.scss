@@ -1,5 +1,5 @@
 
-@use '../common//index.scss' as *;
+@use '../common/index.scss' as *;
 
 @include b('details') {
   border-bottom: css-var('border-width-base') css-var('border-solid') css-var('border-color-primary');
@@ -20,6 +20,8 @@
     text-overflow: ellipsis;
     font-size: css-var('size-token-font-size');
     padding: css-var('size-token-padding');
+    line-height: css-var('size-token-line-height');
+
     // padding: css-var('padding-sm');
   }
 
@@ -46,6 +48,7 @@
       // padding: css-var('padding-sm');
       font-size: css-var('size-token-font-size');
       padding: css-var('size-token-padding');
+      line-height: css-var('size-token-line-height');
     }
   }
 }

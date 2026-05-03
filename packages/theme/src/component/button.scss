@@ -1,4 +1,4 @@
-@use '../common//index.scss' as *;
+@use '../common/index.scss' as *;
 
 @include b('button') {
   all: unset;
@@ -18,6 +18,8 @@
   white-space: nowrap;
   font-size: css-var('size-token-font-size');
   padding: css-var('size-token-padding');
+      line-height: css-var('size-token-line-height');
+
   border-radius: css-var('border-radius-base');
 
   @include is('loading') {
