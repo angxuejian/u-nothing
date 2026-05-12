@@ -1,48 +1,23 @@
 <template>
   <div class="app">
     <uConfigProvide :htmlFontSize="16">
-      <u-textarea
-        class="container"
-        :autosize="{ minRows: 2, maxRows: 4 }"
-        v-model="mval"
-        placeholder="123"
-        theme="browser"
-      ></u-textarea>
-
-      <p></p>
-
-      <u-textarea
-        class="container"
-        :autosize="{ minRows: 2, maxRows: 4 }"
-        v-model="mval"
-        placeholder="想问的，就去问"
-        theme="ustyle"
-      ></u-textarea>
-
-      <p></p>
-      <u-button size="small">submit</u-button>
-      <u-button>submit</u-button>
-      <u-button size="large">submit</u-button>
-
-      <p></p>
-      <uDetails>
-        <template #summary>详情</template>
-        正文内容。
-      </uDetails>
+      <uRecorder @change="onCallbackChange" />
     </uConfigProvide>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { uTextarea, uConfigProvide, uButton, uDetails } from '@u-nothing/index';
-import { onMounted, ref } from 'vue';
+import { uConfigProvide, uRecorder } from '@u-nothing/index';
+import { onMounted } from 'vue';
 import '@theme/index.scss';
-
-const mval = ref('');
 
 onMounted(() => {
   console.log('playground');
 });
+
+const onCallbackChange = (e: any) => {
+  console.log(e, ':::');
+};
 </script>
 
 <style lang="css">
