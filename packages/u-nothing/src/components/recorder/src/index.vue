@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { useOptions, useNamespace, useConfig } from '@u-nothing/hooks';
+import { useOptions, useNamespace, useConfig, useStyle } from '@u-nothing/hooks';
 import type { CommonProps } from '@u-nothing/config';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import uButton from '@u-nothing/components/button';
 import PCMProcessor from '@u-nothing/components/recorder/worklet/pcm-processor.js?url';
 
@@ -21,13 +21,42 @@ const ns = useNamespace('recorder');
 const props = defineProps<Props>();
 const emit = defineEmits<Emits>();
 // const { testAttr } = useTestAttr();
-const { sizeClass } = useConfig(props);
+const { sizeVal, sizeClass } = useConfig(props);
 const isRecording = ref<boolean>(false);
 
 let audioContext: AudioContext | null = null;
 let mediaStream: MediaStream | null = null;
 let sourceNode: MediaStreamAudioSourceNode | null = null;
 let workletNode: AudioWorkletNode | null = null;
+
+const widthSize = computed(() => {
+  if (sizeVal.value === 'small') {
+    return {
+      min: 70,
+      max: 300,
+      height: 30,
+    };
+  } else if (sizeVal.value === 'large') {
+    return {
+      min: 90,
+      max: 400,
+      height: 40,
+    };
+  }
+  return {
+    min: 80,
+    max: 350,
+    height: 35,
+  };
+});
+
+const divStyle = computed(() => {
+  return {
+    ...useStyle('min-width', `${widthSize.value.min}px`),
+    ...useStyle('max-width', `${widthSize.value.max}px`),
+    ...useStyle('height', `${widthSize.value.height}px`),
+  };
+});
 
 const startRecording = async () => {
   try {
@@ -89,13 +118,12 @@ const handleConfirm = () => {};
 </script>
 
 <template>
-  <div :class="[ns.b(), sizeClass]">
-    <Transition mode="out-in">
+  <div :class="[ns.b(), sizeClass, ns.is('recording', isRecording)]" :style="divStyle">
+    <Transition name="recorder" mode="out-in">
       <u-button @click="startRecording" v-if="!isRecording" text>Recorder</u-button>
-
-      <div v-else :class="ns.e('show')">
-        <div>1</div>
-        <div>
+      <div v-else :class="[ns.e('wrapper')]">
+        <div :class="ns.e('wave')"></div>
+        <div :class="ns.e('btn')">
           <u-button @click="handleCancel" text>Cancel</u-button>
           <u-button @click="handleConfirm">Confirm</u-button>
         </div>
