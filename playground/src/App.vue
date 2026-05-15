@@ -15,9 +15,7 @@ onMounted(() => {
   console.log('playground');
 });
 
-const onCallbackChange = (e: any) => {
-  console.log(e, ':::');
-};
+const onCallbackChange = () => {};
 </script>
 
 <style lang="css">

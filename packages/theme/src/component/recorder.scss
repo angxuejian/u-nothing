@@ -31,6 +31,10 @@
   @include e('wave') {
     flex: 1;
     height: 100%;
+    > canvas {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   @include e('btn') {
