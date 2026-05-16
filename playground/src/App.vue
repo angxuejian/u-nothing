@@ -1,7 +1,17 @@
 <template>
   <div class="app">
     <uConfigProvide :htmlFontSize="16">
+      <uRecorder
+        @cancel="onCallbackCancel"
+        @confirm="onCallbackConfirm"
+        @error="onCallbackError"
+        size="small"
+        @change="onCallbackChange"
+      />
+      <p></p>
       <uRecorder @change="onCallbackChange" />
+      <p></p>
+      <uRecorder size="large" @change="onCallbackChange" />
     </uConfigProvide>
   </div>
 </template>
@@ -16,6 +26,15 @@ onMounted(() => {
 });
 
 const onCallbackChange = () => {};
+const onCallbackCancel = () => {
+  console.log('cancel');
+};
+const onCallbackConfirm = () => {
+  console.log('confirm');
+};
+const onCallbackError = (e: any) => {
+  alert('Error: ' + e);
+};
 </script>
 
 <style lang="css">

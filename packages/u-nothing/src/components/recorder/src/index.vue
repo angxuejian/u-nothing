@@ -40,7 +40,7 @@ const primaryColor = computed(() => {
   return getComputedStyle(document.documentElement).getPropertyValue(useCssVar('color-primary'));
 });
 
-const widthSize = computed(() => {
+const boxSize = computed(() => {
   if (sizeVal.value === 'small') {
     return {
       min: 70,
@@ -63,9 +63,9 @@ const widthSize = computed(() => {
 
 const divStyle = computed(() => {
   return {
-    ...useStyle('min-width', `${widthSize.value.min}px`),
-    ...useStyle('max-width', `${widthSize.value.max}px`),
-    ...useStyle('height', `${widthSize.value.height}px`),
+    ...useStyle('min-width', `${boxSize.value.min}px`),
+    ...useStyle('max-width', `${boxSize.value.max}px`),
+    ...useStyle('height', `${boxSize.value.height}px`),
   };
 });
 
@@ -119,10 +119,11 @@ const drawWaveform = () => {
   ctx.setTransform(1, 0, 0, 1, 0, 0);
   ctx.scale(dpr, dpr);
 
-  const gap = 5;
-  const barWidth = 5;
-  const minBarHeight = 10;
-  const maxBarHeight = widthSize.value.height - 2;
+  const w = boxSize.value.max * 0.6 * 0.02;
+  const gap = Math.ceil(w);
+  const barWidth = w;
+  const minBarHeight = Math.ceil(boxSize.value.height * 0.3);
+  const maxBarHeight = boxSize.value.height - 2;
   const barCount = Math.floor(width / (barWidth + gap));
   // const currentBars = new Array(barCount).fill(0);
   const targetBars = new Array(barCount).fill(0);
@@ -216,22 +217,20 @@ onUnmounted(() => {
   handleCancel();
 });
 
-onMounted(() => {
-  // drawWaveform();///
-});
+onMounted(() => {});
 </script>
 
 <template>
   <div :class="[ns.b(), sizeClass, ns.is('recording', isRecording)]" :style="divStyle">
     <Transition @after-enter="onTransitionEnd" name="recorder" mode="out-in">
-      <u-button @click="startRecording" v-if="!isRecording" text>Recorder</u-button>
+      <u-button :size="sizeVal" @click="startRecording" v-if="!isRecording" text>Recorder</u-button>
       <div v-else :class="[ns.e('wrapper')]">
         <div :class="ns.e('wave')">
           <canvas ref="canvasRef"></canvas>
         </div>
         <div :class="ns.e('btn')">
-          <u-button @click="handleCancel" text>Cancel</u-button>
-          <u-button @click="handleConfirm">Confirm</u-button>
+          <u-button :size="sizeVal" @click="handleCancel" text>Cancel</u-button>
+          <u-button :size="sizeVal" @click="handleConfirm">Confirm</u-button>
         </div>
       </div>
     </Transition>
