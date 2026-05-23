@@ -1,0 +1,11 @@
+@use '../common/index.scss' as *;
+
+@include b('grid') {
+  display: grid;
+  gap: css-var('size-token-gap');
+
+
+  @include is('inline') {
+    display: inline-grid;
+  }
+}

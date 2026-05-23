@@ -68,7 +68,7 @@ const createMarkdownit = () => {
 
         // const newSource = source.replace(/"/g, "'");
         void source;
-        return `<DemoBlock code="${codeContent}">${demoComponentStr}${startTitle}`;
+        return `<DemoBlock code="${encodeURIComponent(codeContent)}">${demoComponentStr}${startTitle}`;
       } else {
         return `${endTitle}</DemoBlock>\n`;
       }
