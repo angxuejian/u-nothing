@@ -1,40 +1,27 @@
 <template>
   <div class="app">
     <uConfigProvide :htmlFontSize="16">
-      <uRecorder
-        @cancel="onCallbackCancel"
-        @confirm="onCallbackConfirm"
-        @error="onCallbackError"
-        size="small"
-        @change="onCallbackChange"
-      />
-      <p></p>
-      <uRecorder @change="onCallbackChange" />
-      <p></p>
-      <uRecorder size="large" @change="onCallbackChange" />
+      <uFlex :columns="3" wrap fillLastRow>
+        <uFlexItem>1</uFlexItem>
+        <uFlexItem>2</uFlexItem>
+        <uFlexItem>3</uFlexItem>
+        <uFlexItem>4</uFlexItem>
+        <uFlexItem>5</uFlexItem>
+        <uFlexItem>6</uFlexItem>
+        <uFlexItem>7</uFlexItem>
+        <uFlexItem>8</uFlexItem>
+      </uFlex>
     </uConfigProvide>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { uConfigProvide, uRecorder } from '@u-nothing/index';
+import { uConfigProvide, uFlex, uFlexItem } from '@u-nothing/index';
 import { onMounted } from 'vue';
 import '@theme/index.scss';
-
 onMounted(() => {
   console.log('playground');
 });
-
-const onCallbackChange = () => {};
-const onCallbackCancel = () => {
-  console.log('cancel');
-};
-const onCallbackConfirm = () => {
-  console.log('confirm');
-};
-const onCallbackError = (e: any) => {
-  alert('Error: ' + e);
-};
 </script>
 
 <style lang="css">
