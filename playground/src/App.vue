@@ -1,45 +1,24 @@
 <template>
   <div class="app">
     <uConfigProvide :htmlFontSize="16">
-      <u-textarea
-        class="container"
-        :autosize="{ minRows: 2, maxRows: 4 }"
-        v-model="mval"
-        placeholder="123"
-        theme="browser"
-      ></u-textarea>
-
-      <p></p>
-
-      <u-textarea
-        class="container"
-        :autosize="{ minRows: 2, maxRows: 4 }"
-        v-model="mval"
-        placeholder="想问的，就去问"
-        theme="ustyle"
-      ></u-textarea>
-
-      <p></p>
-      <u-button size="small">submit</u-button>
-      <u-button>submit</u-button>
-      <u-button size="large">submit</u-button>
-
-      <p></p>
-      <uDetails>
-        <template #summary>详情</template>
-        正文内容。
-      </uDetails>
+      <uGrid
+        areas="'header header' 'aside main' '. footer'"
+        columns="50px 1fr"
+        rows="30px 1fr 30px"
+      >
+        <uGridItem areaName="header">header</uGridItem>
+        <uGridItem areaName="aside">aside</uGridItem>
+        <uGridItem areaName="main">main</uGridItem>
+        <uGridItem areaName="footer">footer</uGridItem>
+      </uGrid>
     </uConfigProvide>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { uTextarea, uConfigProvide, uButton, uDetails } from '@u-nothing/index';
-import { onMounted, ref } from 'vue';
+import { uConfigProvide, uGrid, uGridItem } from '@u-nothing/index';
+import { onMounted } from 'vue';
 import '@theme/index.scss';
-
-const mval = ref('');
-
 onMounted(() => {
   console.log('playground');
 });
@@ -82,5 +61,17 @@ body {
 }
 .container {
   width: 100%;
+}
+.u-grid {
+  border: 1px solid red;
+  height: 200px;
+}
+.u-grid-item {
+  background-color: #c0c0c0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #000;
 }
 </style>

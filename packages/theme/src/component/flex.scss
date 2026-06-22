@@ -1,0 +1,11 @@
+@use '../common/index.scss' as *;
+
+@include b('flex') {
+  display: flex;
+  gap: css-var('size-token-gap');
+
+
+  @include is('inline') {
+    display: inline-flex;
+  }
+}

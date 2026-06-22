@@ -30,7 +30,8 @@ const props = defineProps<Props>();
 const isFilipped = ref(false);
 
 const highlightedCode = computed(() => {
-  return hljs.highlight(props.code, {
+  const decodedCode = decodeURIComponent(props.code);
+  return hljs.highlight(decodedCode, {
     language: 'html',
   }).value;
 });

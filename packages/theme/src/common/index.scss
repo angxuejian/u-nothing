@@ -130,19 +130,21 @@ $space-6: 24px;
   --#{$namespace}-size-token-padding: #{css-var('padding-base')};
   --#{$namespace}-size-token-font-size: #{css-var('font-size-base')};
   --#{$namespace}-size-token-line-height: #{css-var('line-height-base')};
+  --#{$namespace}-size-token-gap: #{$space-2};
+
 }
 
 .is-small {
   --#{$namespace}-size-token-padding: #{css-var('padding-sm')};
   --#{$namespace}-size-token-font-size: #{css-var('font-size-sm')};
-    --#{$namespace}-size-token-line-height: #{css-var('line-height-sm')};
-
+  --#{$namespace}-size-token-line-height: #{css-var('line-height-sm')};
+  --#{$namespace}-size-token-gap: #{$space-1};
 }
 
 .is-large {
   --#{$namespace}-size-token-padding: #{css-var('padding-lg')};
   --#{$namespace}-size-token-font-size: #{css-var('font-size-lg')};
   --#{$namespace}-size-token-line-height: #{css-var('line-height-lg')};
-
+  --#{$namespace}-size-token-gap: #{$space-3};
 }
 // size token end
